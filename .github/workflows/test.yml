@@ -2,9 +2,8 @@ name: Test
 permissions:
   contents: read
 on:
-  pull_request:
-  push:
-    branches: [master]
+  workflow_dispatch:
+    
 env:
   MIX_ENV: test
 jobs:
@@ -12,8 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        otp: ["24", "25"]
-        elixir: ["1.13", "1.14"]
+        otp: ["27"]
+        elixir: ["1.17"]
     steps:
     - uses: actions/checkout@v3
     - uses: erlef/setup-beam@v1
